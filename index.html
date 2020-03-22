@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale=1.0, user-scalable=no" />
+
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Oswald:400,500,700&display=swap&subset=latin-ext"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Animate and WOW.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161288702-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161288702-1');
+  </script>
+
+
+  <title>taradys.pl</title>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <nav class="account">
+        <ul class="nav__list">
+          <li class="nav__list-item">
+            <a href="#hero">
+              <img src="img/logo.png" height="70px" alt="logo">
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="main-nav">
+        <ul class="nav__list">
+          <li class="nav__list-item" v-if="lang">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__list-item" v-else>
+            <a href="#about" class="nav__link">O mnie</a>
+          </li>
+
+          <li class="nav__list-item" v-if="lang">
+            <a href="#services" class="nav__link">Services</a>
+          </li>
+          <li class="nav__list-item" v-else>
+            <a href="#services" class="nav__link">Oferta</a>
+          </li>
+
+          <li class="nav__list-item">
+            <a href="#portfolio" class="nav__link">Portfolio</a>
+          </li>
+
+          <li class="nav__list-item" v-if="lang">
+            <a href="#contact" class="nav__link">Contact</a>
+          </li>
+          <li class="nav__list-item" v-else>
+            <a href="#contact" class="nav__link">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="main-nav">
+        <ul class="nav__list">
+          <li class="nav__list-item">
+            <a href="#contact">
+              <div class="btn btn-outline-danger btn-lg" v-if="lang">Hire me</div>
+              <div class="btn btn-outline-danger btn-lg" v-else>Zatrudnij mnie</div>
+            </a>
+          </li>
+          <li v-if="lang" class="nav__list-item">
+            <button @click="lang = false" class="btn btn-outline-danger btn-sm ml-3 mt-2">
+              PL
+            </button>
+          </li>
+          <li v-else class="nav__list-item">
+            <button @click="lang = true" class="btn btn-outline-danger btn-sm ml-3 mt-2">
+              ENG
+            </button>
+          </li>
+        </ul>
+      </nav>
+  
+  
+    </header>
+  
+    <div id="hero">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col col-12 col-lg-8">
+            <div class="text-box">
+              <div class="hero-title">
+                <h1 class="wow fadeInUp" data-wow-duration="1s">
+                  <span>Freelancer</span>
+                  <br />
+                  <span>Webdeveloper</span>
+                </h1>
+                <div class="section-divider wow fadeIn" data-wow-duration="1.5s" data-wow-delay="1s">
+                  <span></span>
+                </div>
+  
+                <p class="wow fadeInUp" data-wow-duration="1s">
+                  <span v-if="lang">I'm a frontend developer based in Brussels. I create modern, simple and stylish websites
+                    and applications.
+                  </span>
+                  <span v-else>
+                    Jestem frontend deweloperem mieszkającym obecnie w Brukseli w Belgii. Tworzę modne, przejrzyste i stylowe strony internetowe.
+                  </span>
+                </p>
+
+                <a href="#about">
+                  <button v-if="lang" type="button" class="btn btn-lg hero-btn btn-outline-danger wow fadeIn"
+                    data-wow-duration="1.5s" data-wow-delay="1s">
+                    See more
+                  </button>
+                  <button v-else type="button" class="btn btn-lg hero-btn btn-outline-danger wow fadeIn"
+                    data-wow-duration="1.5s" data-wow-delay="1s">
+                    Zobacz więcej
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <!-- ABOUT -->
+    <div id="about">
+      <div class="container-fluid ">
+        <div class="row justify-content-center">
+          <div class="col col-12 col-lg-5">
+            <div class="text-center wow fadeIn" data-wow-duration="1.5s">
+              <img src="img/avatar.svg" alt="responsive" />
+            </div>
+          </div>
+          <div class="col-12 col-lg-7 my-auto">
+            <div class="text-center wow fadeIn" data-wow-duration="1.5s">
+              <h2 class="pt-3" v-if="lang">Nice to see you here. I`m Damian.</h2>
+              <h2 class="pt-3" v-else>Hej! Jestem Damian. Miło Cię widzieć!</h2>
+              <p class="py-3 mx-5" v-if="lang">
+                I belive that it's very important to do what you like and to like what to do. That's why I've decided to
+                learn something new even if I'm not that young anymore. I've always liked computers, but coding for was a
+                mystery. But at the age of over 30 I've started learnig, and actually I think I'm getting preety good at
+                it! I'm open to any kind of cooperation. You have a small buisness and need a website? Wonderfull! Or
+                maybe you are a recruiter in a agency and you are looking for hungry for work developer? Well, i hope I'm
+                the guy.
+              </p>
+              <p class="py-3 mx-5" v-else>
+                Wierzę, że trzeba robić to co się lubi i lubić to co się robi. Dlatego zdecydowałem się podjąć się nauki czegoś nowego pomino tego, że nie jestem już najmłodszy. Zawsze lubiłem komputery i technologię, ale kodowanie i programowanie było dla mnie niczym czarna magia. Mimo wszystko zacząłem naukę i wydaje mi się, że każdego dnia jestem w tym coraz lepszy a moje projekty wyglądają coraz lepiej. Jestem otwarty na wszelkie propozycje współpracy. Posiadasz swój biznes i szukasz kogoś, kto stworzy Ci nowoczesną stronę szytą na miarę i nie zedrze przy tym z Ciebie skóry? Znalazłeś! A może jesteś rekruterem w agencji interaktywnej i szukasz świeżej krwi do swojego zespołu? Mam nadzieję, że znalazłeś.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- SERVICES -->
+  
+    <div id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="display-4 text-center py-5 wow fadeIn" data-wow-duration="1.5s" v-if="lang">
+              What do I offer?
+            </h2>
+            <h2 class="display-4 text-center py-5 wow fadeIn" data-wow-duration="1.5s" v-else>
+              Co mogę dla Ciebie zrobić?
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class=" container-fluid content">
+              <div class="row">
+                <div class="col-lg-7 my-auto">
+                  <div class="text-center wow fadeIn" data-wow-duration="1.5s">
+                    <h2 class="pt-3" v-if="lang">Modern and responsive design</h2>
+                    <h2 class="pt-3" v-else>Modny i responsywny design</h2>
+                    <p class="py-3 mx-5" v-if="lang">
+                      These days your website must looks great on all devices. From desktop computer to your smartphone,
+                      responsive design is a key. I also like simplicity so i try to keep my designs clean and tidy. So is
+                      my code.
+                      Using tools like Bootstrap, SCSS, Vue.js and Vuetify I make sure users expirience is fun and easy.
+                    </p>
+                    <p class="py-3 mx-5" v-else>
+                      W dzisiejszych czasach większość z nas przegląda internet przy pomocy smartfonach. Dlatego tak ważne jest, aby strona wyglądała świetnie zarówna na małych jak i dużych ekranach. Zawsze staram się aby treści jak i sam kod były przejrzyste. Używam nowoczesnych technologii takich jak Vue.js, Vuetify, Bootstrap czy SCSS aby moje projekty zawsze wyglądały jak najlepiej.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-5 my-auto order-first order-lg-last">
+                  <div class="text-center wow fadeIn" data-wow-duration="1.5">
+                    <img src="img/responsive.svg" alt="responsive" />
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-lg-5 my-auto">
+                  <div class="text-center wow fadeIn" data-wow-duration="1.5s">
+                    <img src="img/server.svg" alt="server" />
+                  </div>
+                </div>
+                <div class="col-lg-7 my-auto">
+                  <div class="text-center wow fadeIn" data-wow-duration="1.5s">
+                    <h2 class="pt-3 mx-5" v-if="lang">Domaine and hosting</h2>
+                    <h2 class="pt-3 mx-5" v-else>Domena i hosting</h2>
+                    <p class="py-3 mx-5" v-if="lang">
+                      Not everybody is a comupter expert. That's why I'm gonna help you with choosing and getting your domain adress and register it for you. I can also provide you hosting services. That means you don't have to worry about anything.
+                    </p>
+                    <p class="py-3 mx-5" v-else>
+                      Nie musisz być ekspertem komputerowym, żeby mieć swoją strone. Pomogę Ci znaleźć odpowiednią domenę, zarejestrować ją, a jeśli będzie taka potrzeba, mogę również umieścić ją na swoim serwerze. 
+                    </p>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-lg-7 my-auto wow fadeIn" data-wow-duration="1.5s">
+                    <div class="text-center">
+                      <h2 class="pt-3" v-if="lang">Maintainance and actualizations</h2>
+                      <h2 class="pt-3" v-else>Utrzymanie i aktualizacje</h2>
+                      <p class="py-3 mx-5" v-if="lang">
+                        Keeping you website fresh is also not a problem. Depending on a option you choose, I can update
+                        your website even every week. Just send me an email with content you want to see on your website,
+                        and I will make sure it looks great.
+                      </p>
+                      <p class="py-3 mx-5" v-else>
+                        Twoja strona zawsze musi wyglądać świeżo i być aktualna. W zależności jaką opcję wybierzesz, mogę na bieżąco aktualizować twoją stronę. Wystarczy, że prześlesz mi treści, a ja upewnie się, żeby wszystko wyglądało jak należy.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 my-auto order-first order-lg-last wow fadeIn" data-wow-duration="1.5s">
+                    <div class="text-center">
+                      <img src="img/maintain.svg" alt="maintain" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- /SERVICES -->
+  
+        <!-- PORTFOLIO -->
+  
+        <div id="portfolio">
+          <div class="container">
+            <h1 class="pb-5 text-center wow fadeIn" data-wow-duration="1.5s" v-if="lang">Here's some of my work</h1>
+            <h1 class="pb-5 text-center wow fadeIn" data-wow-duration="1.5s" v-else>Oto kilka moich projektów</h1>
+        <div class=" card-box">
+              <div class="row align-items-center">
+                <div class="col-lg-4">
+                  <div class="card shadow text-center mb-3 wow fadeIn">
+                    <div class="inner">
+                      <img src="img/portfolio/moto.jpg" alt="moto" />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="cart-title">motorowkimazury.pl</h5>
+                      <p class="card-text" v-if="lang">
+                        It's a place where you can find a motorboad to rent in Masurian Lake Districk in Poland. Made with
+                        Vue.js and Vuetify.
+                      </p>
+                      <p class="card-text" v-else>
+                        Jest strona firmy czarterowej na Mazurach specjalizująca się w wynajmie łodzi motorowych. Wykonana przy pomocy Vue.js i Vuetify.
+                      </p>
+                      <a href="http://motorowkimazury.pl" target="_blank" class="btn btn-outline-danger">Visit website</a>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-lg-4">
+                  <div class="card shadow text-center mb-3  wow fadeIn" data-wow-delay=".3s">
+                    <div class="inner">
+                      <img src="img/portfolio/panda.png" alt="moto" />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="cart-title">cleanpanda.no</h5>
+                      <p class="card-text"  v-if="lang">
+                        This is a website of a cleaning company based in Oslo in Norawy. Designed and build from scratch
+                        with Bootstrap 4, jQuery and SCSS.
+                      </p>
+                      <p class="card-text" v-else>
+                        Norweska firma świadcząca usługi sprzątające zlokalizowana w Oslo. Strona wykonana przy pomocy Bootstrap4, jQuery i SCSS.
+                      </p>
+                      <a href="http://cleanpanda.no" target="_blank" class="btn btn-outline-danger">Visit website</a>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-lg-4">
+                  <div class="card shadow text-center mb-3  wow fadeIn" data-wow-delay=".6s">
+                    <div class="inner">
+                      <img src="img/portfolio/stream.png" alt="moto" />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="cart-title">streamcross.pl</h5>
+                      <p class="card-text" v-if="lang">
+                        This website of a biggest gym in Węgorzewo Poland and personal trainers was made using Vue.js,
+                        Vuetify and CSS3.
+                      </p>
+                      <p class="card-text" v-else>
+                        Witryna największej siłowni w Węgorzewie oraz trenerów personalnych. Została wykonana przy pomocy Vue.js, Vuetify i CSS3.
+                      </p>
+                      <a href="http://streamcross.pl" target="_blank" class="btn btn-outline-danger">Visit website</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- /PORTFOLIO -->
+  
+      <!-- CALL TO ACTION -->
+  
+      <div id="call">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="text-center white-text px- wow fadeIn">
+                <h2 v-if="lang">Allright. Are we good to go?</h2>
+                <h2 v-else>No dobrze. Bierzemy się do pracy?</h2>
+                <p v-if="lang">
+                  I'm open to any form of cooperation. You have your own buissness and need a website? Got it! Just call
+                  me, send me an e-mail or simply fill out the contact form below.
+                </p>
+                <p class="px-5" v-else>
+                  Jestem otwarty na wszelkie formy współpracy. Jeśli twój biznes potrzebuje strony, potrzebujesz osobistego bloga lub chcesz skontaktować się w sprawie oferty pracy, wypełnij formularz kontaktowy poniżej lub poprostu zadzwoń!
+                </p>
+                <a href="#contact">
+                  <button type="button" class="btn btn-outline-danger my-3" v-if="lang">
+                    Hire me!
+                  </button>
+                  <button type="button" class="btn btn-outline-danger my-3" v-else>
+                    Zatrudnij mnie!
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- /CALL TO ACTION -->
+  
+      <!-- CONTACT -->
+  
+      <div id="contact">
+        <div class="container">
+          <div class="row justify-content-center wow fadeInUp">
+            <div class="col-lg-5">
+              <div class="contact-about">
+                <h3>Contact</h3>
+                <p class="py-3"  v-if="lang">
+                  Filling this form is the simplest way to contact me, but i think a old fashion phone call will be even
+                  more effective.
+                </p>
+                <p class="py-3" v-else>
+                  Najłatwiej skontaktować się ze mną za pomocą formularza, jednak myślę, że zwykła rozmowa telefoniczna będzie jeszcze bardziej skuteczna.
+                </p>
+                <p>
+                  <i class="fa fa-phone-square pr-2"></i>
+                  00 32 48 773 86 52
+                </p>
+                <p>
+                  <i class="fa fa-envelope pr-2"></i>
+                  damian@taradys.pl
+                </p>
+              </div>
+            </div>
+  
+            <div class="col-lg-7">
+              <div class="form">
+                <div id="errormessage"></div>
+                <form action="https://formspree.io/damian@taradys.pl" method="POST" role="form" class="contactForm">
+                  <div class="form-row">
+                    <div class="form-group col-lg-6">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <input type="email" name="e-mail" class="form-control" id="email" placeholder="Your Email"
+                        data-rule="email" data-msg="Please enter a valid email" />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                      data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" name="message" rows="5" data-rule="required"
+                      data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validation"></div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-danger mt-2" title="Send Message" v-if="lang">
+                      Send Message
+                    </button>
+                    <button type="submit" class="btn btn-danger mt-2" title="Send Message" v-else>
+                      Wyślij
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- /CONTACT -->
+  
+  
+  
+      <!-- FOOTER -->
+  
+      <div id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                Designed and developed by <span>taradys.pl</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mobile-nav d-md-none">
+        <div class="container-fluid">
+          <div class="row justify-content-around">
+            <div class="col-2">
+              <div class="mobile-btn" @click="lang = !lang">
+                <div v-if="lang">
+                    <i class="fa fa-flag"></i>
+                    <p>polski</p>
+                </div>
+                <div v-else>
+                    <i class="fa fa-flag"></i>
+                    <p>english</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="mobile-btn">
+                <a href="#about">
+                  <i class="fa fa-user-circle"></i>
+                  <p v-if="lang">about me</p>
+                  <p v-else>o mnie</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="mobile-btn">
+                <a href="#services">
+                  <i class="fa fa-wrench"></i>
+                  <p v-if="lang">services</p>
+                  <p v-else>oferta</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="mobile-btn">
+                <a href="#portfolio">
+                  <i class="fa fa-code"></i>
+                  <p>portfolio</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="mobile-btn">
+                <a href="#contact">
+                  <i class="fa fa-envelope"></i>
+                  <p v-if="lang">contact</p>
+                  <p v-else>kontakt</p>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <!-- /FOOTER -->
+
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="lib/wow.min.js"></script>
+
+    <script>
+      
+      new WOW().init();
+      
+    </script>
+</body>
+
+</html>

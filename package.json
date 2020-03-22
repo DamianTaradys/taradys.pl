@@ -1,0 +1,23 @@
+{
+  "name": "taradys.pl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/main.css -w"
+  },
+  "keywords": [
+    "freelancer",
+    "frontend",
+    "website",
+    "developer"
+  ],
+  "author": "Damian Taradys",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

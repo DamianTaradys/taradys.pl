@@ -1,0 +1,284 @@
+@media screen and (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    h1 {
+      font-size: 50px !important;
+    }
+    h2 {
+      font-size: 40px !important;
+    }
+  
+    p {
+      font-size: 20px !important;
+    }
+  }
+
+body {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+p {
+  font-size: 20px;
+}
+
+
+
+
+
+.text-box {
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+
+.hero-btn {
+  margin-top: 40px;
+}
+
+header {
+  --text: #f4f4f4;
+  --text-inverse: rgb(56, 56, 56);
+  --background: transparent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 7%;
+  transition: all 250ms ease-in;
+  background: var(--background);
+  color: var(--text);
+}
+
+.nav__list {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+
+  &:hover {
+    text-decoration: none;
+    color: red;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transition: transform 150ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.nav-scrolled {
+  --text: #333;
+  --text-inverse: #f4f4f4;
+  --background: #f4f4f4;
+
+  box-shadow: 0 0px 20px rgba(black, 0.2);
+  padding: 0.2em 3em;
+}
+
+
+
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  color: whitesmoke;
+
+  .hero-title {
+    font-family: "Oswald", sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .hero-title h1 {
+    text-transform: uppercase;
+  }
+
+  .hero-title p {
+    font-size: 28px;
+  }
+}
+
+.section-divider {
+  width: 70px;
+  height: 5px;
+  background-color: red;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* About Section */
+
+#about {
+  background-color: whitesmoke;
+  color: rgb(58, 58, 58);
+
+  img {
+    max-width: 90%;
+    max-height: 70vh;
+    margin-top: 10vh;
+  }
+}
+
+/* Responive Section */
+
+#services {
+  background: linear-gradient(to right top, #247bd4, #56cad5);
+  color: whitesmoke;
+
+  img {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    width: 80%;
+    max-height: 50vh;
+  }
+}
+
+/* Portfolio */
+
+#portfolio {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background-color: whitesmoke;
+  color: rgb(58, 58, 58);
+
+  img {
+    max-height: 25vh;
+    padding-top: 3vh;
+  }
+
+  .card {
+    position: relative;
+    transition: all ease 0.5s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+}
+
+/* Call to Action */
+
+#call {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/office.jpg");
+  background-attachment: fixed;
+  color: whitesmoke;
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+
+  h2 {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+}
+
+/* CONTACT */
+
+#contact {
+  padding: 80px 0;
+  background-color: whitesmoke;
+
+  .contact-about h3 {
+    font-size: 36px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-transform: uppercase;
+    color: rgb(58, 58, 58);
+  }
+
+  .contact-about p {
+    line-height: 24px;
+    color: #888;
+  }
+
+  .contact-about i{
+    color: #DC3545;
+    font-size: 30px;
+  }
+}
+
+/* FOOTER */
+
+#footer {
+  padding: 10px 50px;
+  background-color: black;
+  color: whitesmoke;
+  font-size: 18px;
+
+  span {
+    color: DC3545;
+  }
+}
+
+
+.mobile-nav {
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background-color: whitesmoke;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(black, 0.2);
+
+  .mobile-btn{
+      height:100%;
+      font-size: 30px;
+      color: rgb(56, 56, 56);
+      display: block;
+      & a{
+          text-decoration: none;
+          color: rgb(56, 56, 56);
+      }
+
+      &:hover{
+        cursor: pointer;
+      }
+  }
+}
